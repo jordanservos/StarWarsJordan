@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars - Express</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Star Wars Characters</h1>
+
+        </div>
+
+        <div id="characters">
+
+
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        $.get("/api/characters", function(data) {
+            console.log(data);
+
+            for (let i = 0; i < data.length; i++) {
+                let char = data[i];
+
+                $("#characters").append(
+                    $("<h3>").text(char.name),
+                    $("<h3>").text(char.role),
+                    $("<h3>").text(char.age),
+                    $("<h3>").text(char.force_points),
+                    $("<h3>").text("------------------------")
+
+
+
+
+                )
+
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>
